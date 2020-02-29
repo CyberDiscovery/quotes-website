@@ -7,4 +7,4 @@ def index():
     return render_template("index.html", authenticated=False)
 
 def main():
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", debug=True)
