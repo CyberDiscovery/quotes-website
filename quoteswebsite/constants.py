@@ -1,0 +1,18 @@
+from os import environ
+import base64
+
+
+def getenv(name: str, fallback: str = "") -> str:
+    """Return an (optionally base64-encoded) env var."""
+    variable = environ.get(name)
+    if bool(environ.get("DEPLOY")) and variable is not None:
+        variable = base64.b64decode(variable).decode()
+    return variable or fallback
+
+
+class PostgreSQL:
+    PGHOST = getenv("PGHOST")
+    PGPORT = getenv("PGPORT")
+    PGUSER = getenv("PGUSER")
+    PGDATABASE = getenv("PGDATABASE")
+    PGPASSWORD = getenv("PGPASSWORD")
