@@ -10,6 +10,7 @@ python = "^3.8"
 "discord.py" = "^1.2.5"
 flask = "^1.1.1"
 Flask-Discord = "^0.1.9"
+httpx = "^0.12.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.6.0"
