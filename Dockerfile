@@ -7,4 +7,4 @@ RUN poetry config virtualenvs.create false
 RUN poetry install --no-dev --no-interaction --no-ansi
 ADD . /app
 
-CMD python -m cdbot
+CMD gunicorn --bind 0.0.0.0:5000 quoteswebsite:app
