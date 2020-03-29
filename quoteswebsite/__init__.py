@@ -3,7 +3,6 @@ from random import randint
 from flask import Flask, render_template
 from httpx import get
 from psycopg2 import pool
-
 from quoteswebsite.constants import PostgreSQL, bot_token, quote_channel_id
 
 app = Flask(__name__)
