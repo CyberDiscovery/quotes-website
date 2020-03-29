@@ -16,3 +16,7 @@ class PostgreSQL:
     PGUSER = getenv("PGUSER")
     PGDATABASE = getenv("PGDATABASE")
     PGPASSWORD = getenv("PGPASSWORD")
+
+
+quote_channel_id = environ.get("QUOTE_CHANNEL_ID", 463657120441696256)
+bot_token = environ.get("BOT_TOKEN")
