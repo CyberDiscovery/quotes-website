@@ -1,11 +1,10 @@
-from os import environ
 from random import randint
 
-import psycopg2
-from flask import Flask, redirect, render_template, request
-from psycopg2 import pool
+from flask import Flask, render_template
 from httpx import get
-from quoteswebsite.constants import PostgreSQL, quote_channel_id, bot_token
+from psycopg2 import pool
+
+from quoteswebsite.constants import PostgreSQL, bot_token, quote_channel_id
 
 app = Flask(__name__)
 
