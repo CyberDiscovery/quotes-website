@@ -3,7 +3,7 @@ FROM nginx:latest
 WORKDIR /app
 
 # Remove default site
-RUN rm /etc/nginx/sites-enabled/default.conf
+RUN rm /etc/nginx/conf.d/default.conf
 
 # Create certificate directory
 RUN mkdir -p /var/www/_letsencrypt
