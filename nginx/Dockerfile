@@ -11,7 +11,7 @@ RUN chown www-data /var/www/_letsencrypt
 
 # Load Nginx configs
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY nginx-site.conf /etc/nginx/sites-enabled/nginx.conf
+COPY nginx-site.conf /etc/nginx/conf.d/nginx.conf
 COPY entry.sh entry.sh
 
 CMD sh /app/entry.sh
