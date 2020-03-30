@@ -30,7 +30,7 @@ jobs:
       testResultsFiles: '**/flake8.xml'
       testRunTitle: 'Publish test results from flake8'
 
-- job: build
+- job: buildapplication
   displayName: 'Build Application'
   
   pool:
@@ -43,7 +43,7 @@ jobs:
       dockerFile: '$(System.DefaultWorkingDirectory)/Dockerfile'
       imageName: 'cyberdiscovery/quotes-website:latest'
 
-- job: build
+- job: buildportal
   displayName: 'Build Portal'
   
   pool:
