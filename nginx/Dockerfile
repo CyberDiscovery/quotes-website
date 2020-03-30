@@ -14,4 +14,4 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY nginx-site.conf /etc/nginx/sites-enabled/nginx.conf
 COPY entry.sh entry.sh
 
-CMD /app/entry.sh
+CMD sh /app/entry.sh
