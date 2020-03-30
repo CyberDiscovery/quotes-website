@@ -6,8 +6,8 @@ pr: none
 stages:
   - stage: Publish
     jobs:
-      - job: Publish
-        displayName: Publish
+      - job: PublishApplication
+        displayName: Publish Application
 
         pool:
           vmImage: Ubuntu 18.04
@@ -26,6 +26,28 @@ stages:
           inputs:
             containerRegistry: 'GitHub Packages'
             repository: 'CyberDiscovery/quotes-website/quotes-website'
+            tags: latest
+
+      - job: PublishPortal
+        displayName: PublishPortal
+
+        pool:
+          vmImage: Ubuntu 18.04
+
+        steps:
+        - task: Docker@2
+          displayName: 'Publish to Docker Hub'
+          inputs:
+            containerRegistry: 'Docker Hub'
+            repository: cyberdiscovery/quotes-portal
+            Dockerfile: '$(System.DefaultWorkingDirectory)/nginx/Dockerfile'
+            tags: latest
+
+        - task: Docker@2
+          displayName: 'Publish to GitHub Packages'
+          inputs:
+            containerRegistry: 'GitHub Packages'
+            repository: 'CyberDiscovery/quotes-website/quotes-portal'
             tags: latest
   
   - stage: Deploy

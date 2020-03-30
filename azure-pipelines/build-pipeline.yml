@@ -31,7 +31,7 @@ jobs:
       testRunTitle: 'Publish test results from flake8'
 
 - job: build
-  displayName: 'Build'
+  displayName: 'Build Application'
   
   pool:
     vmImage: 'Ubuntu 18.04'
@@ -41,7 +41,20 @@ jobs:
     displayName: 'Build an image'
     inputs:
       dockerFile: '$(System.DefaultWorkingDirectory)/Dockerfile'
-      imageName: 'cyberdiscovery/cdbot:latest'
+      imageName: 'cyberdiscovery/quotes-website:latest'
+
+- job: build
+  displayName: 'Build Portal'
+  
+  pool:
+    vmImage: 'Ubuntu 18.04'
+
+  steps:
+  - task: Docker@1
+    displayName: 'Build an image'
+    inputs:
+      dockerFile: '$(System.DefaultWorkingDirectory)/nginx/Dockerfile'
+      imageName: 'cyberdiscovery/quotes-portal:latest'
 
 - job: validate
   displayName: Validate
