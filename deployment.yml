@@ -5,7 +5,7 @@ metadata:
   labels:
     run: quotes-website
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 443
     protocol: TCP
