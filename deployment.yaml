@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: "quotes-website"
-        image: "cyberdiscovery/quoteswebsite:latest"
+        image: "cyberdiscovery/quotes-website:latest"
         env:
         - name: "BOT_TOKEN"
           valueFrom:
