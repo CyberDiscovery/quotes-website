@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: "quotes-website"
   labels:
-    run: quotes-website
+    app: quotes-website
 spec:
   type: LoadBalancer
   ports:
@@ -11,7 +11,7 @@ spec:
     protocol: TCP
     name: https
   selector:
-    run: quotes-website
+    app: quotes-website
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
