@@ -29,7 +29,7 @@ stages:
             tags: latest
 
       - job: PublishPortal
-        displayName: PublishPortal
+        displayName: Publish Portal
 
         pool:
           vmImage: Ubuntu 18.04
