@@ -7,9 +7,9 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 443
+  - port: 80
     protocol: TCP
-    name: https
+    name: http
   selector:
     app: quotes-website
 ---
@@ -62,5 +62,5 @@ spec:
               name: "creds"
               key: "PGPASSWORD"
         ports:
-        - containerPort: 443
+        - containerPort: 80
           name: "quotes-website"
