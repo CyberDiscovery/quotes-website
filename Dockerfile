@@ -7,4 +7,4 @@ RUN poetry config virtualenvs.create false
 RUN poetry install --no-dev --no-interaction --no-ansi
 ADD . /app
 
-CMD gunicorn --bind 0.0.0.0:80 -w 4 quoteswebsite:main
+CMD gunicorn --bind 0.0.0.0:80 -w 4 quoteswebsite:app
