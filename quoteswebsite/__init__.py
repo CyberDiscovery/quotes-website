@@ -43,7 +43,9 @@ def quote():
         }
     else:
         return {
-            "quote": message["embeds"][0]["description"],
+            "quote": message["embeds"][0]["description"].split(
+                "\\n\\n[Jump to message]"
+            )[0],
             "author": message["embeds"][0]["author"]["name"],
             "id": message["id"],
         }
