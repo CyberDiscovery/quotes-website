@@ -36,11 +36,16 @@ def quote():
         headers={"Authorization": f"Bot {bot_token}"},
     ).json()
     if message["embeds"] == []:
-        return {"quote": message["content"], "author": message["author"]["username"]}
+        return {
+            "quote": message["content"],
+            "author": message["author"]["username"],
+            "id": message["id"],
+        }
     else:
         return {
             "quote": message["embeds"][0]["description"],
             "author": message["embeds"][0]["author"]["name"],
+            "id": message["id"],
         }
 
 
