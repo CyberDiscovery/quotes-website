@@ -1,0 +1,46 @@
+html,
+body {
+    height: 100%;
+}
+
+.quote-page-body {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 75%;
+    padding: 15px;
+    margin: 0 auto;
+    flex-flow: row wrap;
+}
+
+.item {
+    flex-basis: 100%;
+}
+
+footer {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 75%;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+#quote {
+    font-style: italic;
+    font-size: 400%;
+}
+
+#author {
+    font-size: 200%;
+}

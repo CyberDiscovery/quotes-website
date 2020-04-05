@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "quotes-website"
+  labels:
+    app: quotes-website
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    protocol: TCP
+    name: http
+  selector:
+    app: quotes-website
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "quotes-website"
+  namespace: "default"
+  labels:
+    app: "quotes-website"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "quotes-website"
+  template:
+    metadata:
+      labels:
+        app: "quotes-website"
+    spec:
+      containers:
+      - name: "quotes-website"
+        image: "cyberdiscovery/quotes-website:latest"
+        env:
+        - name: "BOT_TOKEN"
+          valueFrom:
+            secretKeyRef:
+              name: "creds"
+              key: "BOT_TOKEN"
+        - name: "PGHOST"
+          value: "postgres"
+        - name: "PGPORT"
+          valueFrom:
+            secretKeyRef:
+              name: "creds"
+              key: "PGPORT"
+        - name: "PGDATABASE"
+          valueFrom:
+            secretKeyRef:
+              name: "creds"
+              key: "PGDATABASE"
+        - name: "PGUSER"
+          valueFrom:
+            secretKeyRef:
+              name: "creds"
+              key: "PGUSER"
+        - name: "PGPASSWORD"
+          valueFrom:
+            secretKeyRef:
+              name: "creds"
+              key: "PGPASSWORD"
+        ports:
+        - containerPort: 80
+          name: "quotes-website"

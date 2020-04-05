@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Cyber Discovery Quotes{% endblock %}
+{% block body %}
+<div class="quote-page-body">
+    <div id="quote" class="item">Quote Message Here</div>
+    <div id="author" class="item"> - Author</div>
+</div>
+<footer>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Permalink" aria-label="Permalink"
+            aria-describedby="basic-addon2" id="permalink_input" readonly>
+        <div class="input-group-append">
+            <span class="input-group-text" id="permalink_button"><i class="fas fa-copy"></i></span>
+        </div>
+    </div>
+</footer>
+<script src="/static/quotes.js"></script>
+{% endblock %}
