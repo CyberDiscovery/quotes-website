@@ -32,7 +32,7 @@ def quote():
     cursor.close()
     connection_pool.putconn(connection)
     message = get(
-        f"https://discordapp.com/api/v6/{quote_channel_id}/messages/{choice(records)}",
+        f"https://discordapp.com/api/v6/{quote_channel_id}/messages/{choice(records)[0]}",
         headers={"Authorization": f"Bot {bot_token}"},
     ).json()
     if message.get("embeds") in ([], None):
