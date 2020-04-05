@@ -31,13 +31,11 @@ def quote():
     records = cursor.fetchall()
     cursor.close()
     connection_pool.putconn(connection)
-    print(f"https://discordapp.com/api/v6/{quote_channel_id}/messages/{choice(records)[0]}")
     message = get(
-        f"https://discordapp.com/api/v6/{quote_channel_id}/messages/{choice(records)[0]}",
+        f"https://discordapp.com/api/v7/channels/{quote_channel_id}/messages/{choice(records)[0]}",
         headers={"Authorization": f"Bot {bot_token}"},
     ).json()
-    print(message)
-    if message.get("embeds") in ([], None):
+    if message["embeds"] == []:
         return {"quote": message["content"], "author": message["author"]["username"]}
     else:
         return {
