@@ -1,6 +1,6 @@
 (function quotes() {
     $.getJSON("/api/quote", function(quote){
-            $("#quote").text(quote.text);
+            $("#quote").text(quote.quote);
             $("#author").text("- " + quote.author);
             $("#permalink_input").val(window.location.hostname + "/quote/" + quote.id);
 
