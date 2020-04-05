@@ -35,7 +35,7 @@ def quote():
         f"https://discordapp.com/api/v6/{quote_channel_id}/messages/{records[randint(0, len(records) - 1)][0]}",
         headers={"Authorization": f"Bot {bot_token}"},
     ).json()
-    if message["embeds"] == []:
+    if message.get("embeds") in ([], None):
         return {"quote": message["content"], "author": message["author"]["username"]}
     else:
         return {
