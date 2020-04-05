@@ -1,4 +1,4 @@
-from random import randint
+from random import choice
 
 from flask import Flask, render_template
 from httpx import get
@@ -32,7 +32,7 @@ def quote():
     cursor.close()
     connection_pool.putconn(connection)
     message = get(
-        f"https://discordapp.com/api/v6/{quote_channel_id}/messages/{records[randint(0, len(records) - 1)][0]}",
+        f"https://discordapp.com/api/v6/{quote_channel_id}/messages/{choice(records)}",
         headers={"Authorization": f"Bot {bot_token}"},
     ).json()
     if message.get("embeds") in ([], None):
