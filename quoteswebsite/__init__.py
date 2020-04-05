@@ -27,7 +27,7 @@ def index():
 def quote():
     connection = connection_pool.getconn()
     cursor = connection.cursor()
-    cursor.execute("select quote_id from quotes")
+    cursor.execute("select quote_id from quotes;")
     records = cursor.fetchall()
     cursor.close()
     connection_pool.putconn(connection)
